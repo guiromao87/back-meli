@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1c9fc7f2-99c6-4b90-ae14-92a583b24c28",
+    "name": "Smartphone X200",
+    "description": "Powerful smartphone with 128GB storage and 6.5-inch display.",
+    "imageUrl": "http://example.com/smartphone_x200.jpg",
+    "price": 799.99,
+    "category": "BOOK",
+    "review": 5
+  },
+  {
+    "id": "1c9fc7f2-99c6-4b90-ae14-92a583b24c29",
+    "name": "Smartphone X300",
+    "description": "Advanced smartphone featuring 256GB storage and 120Hz OLED display.",
+    "imageUrl": "http://example.com/smartphone_x300.jpg",
+    "price": 999.99,
+    "category": "BOOK",
+    "review": 5
+  },
+  {
+    "id": "1c9fc7f2-99c6-4b90-ae14-92a583b24c30",
+    "name": "Wireless Earbuds Pro",
+    "description": "Noise-cancelling wireless earbuds with 24-hour battery life.",
+    "imageUrl": "http://example.com/earbuds_pro.jpg",
+    "price": 199.99,
+    "category": "BOOK",
+    "review": 5
+  }
+]
