@@ -5,7 +5,7 @@
     "description": "Powerful smartphone with 128GB storage and 6.5-inch display.",
     "imageUrl": "http://example.com/smartphone_x200.jpg",
     "price": 799.99,
-    "category": "BOOK",
+    "category": "ELECTRONICS",
     "review": 5
   },
   {
@@ -14,7 +14,7 @@
     "description": "Advanced smartphone featuring 256GB storage and 120Hz OLED display.",
     "imageUrl": "http://example.com/smartphone_x300.jpg",
     "price": 999.99,
-    "category": "BOOK",
+    "category": "ELECTRONICS",
     "review": 5
   },
   {
@@ -23,7 +23,250 @@
     "description": "Noise-cancelling wireless earbuds with 24-hour battery life.",
     "imageUrl": "http://example.com/earbuds_pro.jpg",
     "price": 199.99,
+    "category": "ELECTRONICS",
+    "review": 5
+  },
+  {
+    "id": "2a1b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "name": "Laptop Z500",
+    "description": "Ultra-slim laptop with i7 processor and 16GB RAM.",
+    "imageUrl": "http://example.com/laptop_z500.jpg",
+    "price": 1499.50,
+    "category": "ELECTRONICS",
+    "review": 4
+  },
+  {
+    "id": "3b2c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+    "name": "Aventuras no Espaço",
+    "description": "Livro de ficção científica sobre exploração espacial.",
+    "imageUrl": "http://example.com/aventuras_espaco.jpg",
+    "price": 45.90,
     "category": "BOOK",
     "review": 5
+  },
+  {
+    "id": "4c3d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+    "name": "Câmera Mirrorless",
+    "description": "Câmera profissional com sensor full-frame e gravação 4K.",
+    "imageUrl": "http://example.com/camera_mirrorless.jpg",
+    "price": 2199.00,
+    "category": "ELECTRONICS",
+    "review": 4
+  },
+  {
+    "id": "5d4e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f90",
+    "name": "Tênis Esportivo Runner",
+    "description": "Tênis leve e confortável para corrida de longa distância.",
+    "imageUrl": "http://example.com/tenis_runner.jpg",
+    "price": 299.99,
+    "category": "FASHION",
+    "review": 5
+  },
+  {
+    "id": "6e5f7a8b-9c0d-1e2f-3a4b-5c6d7e8f90a1",
+    "name": "Ebook: Receitas Saudáveis",
+    "description": "Mais de 100 receitas para uma alimentação equilibrada.",
+    "imageUrl": "http://example.com/ebook_receitas.pdf",
+    "price": 25.00,
+    "category": "BOOK",
+    "review": 4
+  },
+  {
+    "id": "7f6a8b9c-0d1e-2f3a-4b5c-6d7e8f90a1b2",
+    "name": "Smartwatch S10",
+    "description": "Relógio inteligente com monitoramento de saúde e GPS.",
+    "imageUrl": "http://example.com/smartwatch_s10.jpg",
+    "price": 349.90,
+    "category": "ELECTRONICS",
+    "review": 5
+  },
+  {
+    "id": "8a7b9c0d-1e2f-3a4b-5c6d-7e8f90a1b2c3",
+    "name": "Mesa Ergonômica",
+    "description": "Mesa com ajuste de altura para melhor postura no trabalho.",
+    "imageUrl": "http://example.com/mesa_ergonomica.jpg",
+    "price": 899.00,
+    "category": "HOME",
+    "review": 4
+  },
+  {
+    "id": "9b8c0d1e-2f3a-4b5c-6d7e-8f90a1b2c3d4",
+    "name": "Headset Gamer",
+    "description": "Fone de ouvido com microfone de alta qualidade para jogos.",
+    "imageUrl": "http://example.com/headset_gamer.jpg",
+    "price": 149.99,
+    "category": "ELECTRONICS",
+    "review": 4
+  },
+  {
+    "id": "a0c9d1e2-f3a4-b5c6-d7e8-f90a1b2c3d4e",
+    "name": "Blusa de Lã Confort",
+    "description": "Blusa de lã macia e quente, ideal para o inverno.",
+    "imageUrl": "http://example.com/blusa_la.jpg",
+    "price": 129.90,
+    "category": "FASHION",
+    "review": 5
+  },
+  {
+    "id": "b1d0e2f3-a4b5-c6d7-e8f9-0a1b2c3d4e5f",
+    "name": "Mouse Sem Fio Ultra",
+    "description": "Mouse ergonômico e de alta precisão com bateria recarregável.",
+    "imageUrl": "http://example.com/mouse_ultra.jpg",
+    "price": 79.50,
+    "category": "ELECTRONICS",
+    "review": 3
+  },
+  {
+    "id": "c2e1f3a4-b5c6-d7e8-f90a-1b2c3d4e5f60",
+    "name": "Coleção de Poesias",
+    "description": "Antologia com os maiores poetas da literatura brasileira.",
+    "imageUrl": "http://example.com/poesias_antologia.jpg",
+    "price": 55.00,
+    "category": "BOOK",
+    "review": 5
+  },
+  {
+    "id": "d3f2a4b5-c6d7-e8f9-0a1b-2c3d4e5f6071",
+    "name": "TV 55 polegadas 4K",
+    "description": "Smart TV com resolução 4K, HDR e sistema operacional rápido.",
+    "imageUrl": "http://example.com/tv_55_4k.jpg",
+    "price": 2599.99,
+    "category": "ELECTRONICS",
+    "review": 4
+  },
+  {
+    "id": "e4a3b5c6-d7e8-f90a-1b2c-3d4e5f607182",
+    "name": "Panela de Pressão",
+    "description": "Panela de pressão elétrica com múltiplas funções de cozimento.",
+    "imageUrl": "http://example.com/panela_pressao.jpg",
+    "price": 189.90,
+    "category": "HOME",
+    "review": 5
+  },
+  {
+    "id": "f5b4c6d7-e8f9-0a1b-2c3d-4e5f60718293",
+    "name": "Óculos de Sol Aviador",
+    "description": "Óculos de sol com armação metálica e proteção UV.",
+    "imageUrl": "http://example.com/oculos_aviador.jpg",
+    "price": 99.99,
+    "category": "FASHION",
+    "review": 4
+  },
+  {
+    "id": "06c5d7e8-f90a-1b2c-3d4e-5f60718293a4",
+    "name": "Kit Ferramentas Profissional",
+    "description": "Conjunto completo de ferramentas para reparos e manutenção.",
+    "imageUrl": "http://example.com/kit_ferramentas.jpg",
+    "price": 399.00,
+    "category": "HARDWARE",
+    "review": 5
+  },
+  {
+    "id": "17d6e8f9-0a1b-2c3d-4e5f-60718293a4b5",
+    "name": "Violão Acústico",
+    "description": "Violão de cordas de nylon, ideal para iniciantes.",
+    "imageUrl": "http://example.com/violao_acustico.jpg",
+    "price": 450.00,
+    "category": "MUSIC",
+    "review": 3
+  },
+  {
+    "id": "28e7f90a-1b2c-3d4e-5f60-718293a4b5c6",
+    "name": "Pneu Aro 15",
+    "description": "Pneu de alta durabilidade e aderência para carros de passeio.",
+    "imageUrl": "http://example.com/pneu_aro15.jpg",
+    "price": 350.75,
+    "category": "AUTOMOTIVE",
+    "review": 4
+  },
+  {
+    "id": "39f80a1b-2c3d-4e5f-6071-8293a4b5c6d7",
+    "name": "Cafeteira Expresso",
+    "description": "Máquina de café expresso com moedor integrado.",
+    "imageUrl": "http://example.com/cafeteira_expresso.jpg",
+    "price": 699.99,
+    "category": "HOME",
+    "review": 5
+  },
+  {
+    "id": "4a091b2c-3d4e-5f60-7182-93a4b5c6d7e8",
+    "name": "História do Mundo",
+    "description": "Livro didático com a cronologia completa da história humana.",
+    "imageUrl": "http://example.com/historia_mundo.jpg",
+    "price": 85.00,
+    "category": "BOOK",
+    "review": 4
+  },
+  {
+    "id": "5b1a2c3d-4e5f-6071-8293-a4b5c6d7e8f9",
+    "name": "Impressora 3D",
+    "description": "Impressora 3D de alta precisão e grande volume de impressão.",
+    "imageUrl": "http://example.com/impressora_3d.jpg",
+    "price": 1800.00,
+    "category": "ELECTRONICS",
+    "review": 4
+  },
+  {
+    "id": "6c2b3d4e-5f60-7182-93a4-b5c6d7e8f90a",
+    "name": "Bicicleta Mountain Bike",
+    "description": "Bicicleta com suspensão dupla e 21 marchas.",
+    "imageUrl": "http://example.com/bicicleta_mtb.jpg",
+    "price": 1200.00,
+    "category": "SPORT",
+    "review": 5
+  },
+  {
+    "id": "7d3c4e5f-6071-8293-a4b5-c6d7e8f90a1b",
+    "name": "Jogo de Tabuleiro Clássico",
+    "description": "Jogo de estratégia para toda a família.",
+    "imageUrl": "http://example.com/jogo_tabuleiro.jpg",
+    "price": 75.90,
+    "category": "TOY",
+    "review": 5
+  },
+  {
+    "id": "8e4d5f60-7182-93a4-b5c6-d7e8f90a1b2c",
+    "name": "Liquidificador Potente",
+    "description": "Liquidificador com 1000W de potência e copo de vidro.",
+    "imageUrl": "http://example.com/liquidificador.jpg",
+    "price": 159.90,
+    "category": "HOME",
+    "review": 4
+  },
+  {
+    "id": "9f5e6071-8293-a4b5-c6d7-e8f90a1b2c3d",
+    "name": "Mochila para Laptop",
+    "description": "Mochila impermeável com compartimento acolchoado para laptop.",
+    "imageUrl": "http://example.com/mochila_laptop.jpg",
+    "price": 110.00,
+    "category": "FASHION",
+    "review": 5
+  },
+  {
+    "id": "a06f7182-93a4-b5c6-d7e8-f90a1b2c3d4e",
+    "name": "Kit de Pincéis de Maquiagem",
+    "description": "Conjunto profissional com 12 pincéis de cerdas sintéticas.",
+    "imageUrl": "http://example.com/kit_pinceis.jpg",
+    "price": 89.99,
+    "category": "BEAUTY",
+    "review": 5
+  },
+  {
+    "id": "b1708293-a4b5-c6d7-e8f9-0a1b2c3d4e5f",
+    "name": "Placa de Vídeo RTX 4080",
+    "description": "Placa de vídeo de última geração para jogos em 4K e trabalho profissional.",
+    "imageUrl": "http://example.com/placa_rtx.jpg",
+    "price": 5500.00,
+    "category": "ELECTRONICS",
+    "review": 5
+  },
+  {
+    "id": "c28193a4-b5c6-d7e8-f90a-1b2c3d4e5f60",
+    "name": "Livro de Autoajuda",
+    "description": "Guia prático para desenvolvimento pessoal e profissional.",
+    "imageUrl": "http://example.com/livro_autoajuda.jpg",
+    "price": 35.50,
+    "category": "BOOK",
+    "review": 3
   }
 ]

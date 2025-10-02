@@ -1,13 +1,14 @@
 package br.com.guiromao.meli.mercadolivre.service;
 
+
 import br.com.guiromao.meli.mercadolivre.domain.Product;
 import br.com.guiromao.meli.mercadolivre.repository.ProductRepository;
-import br.com.guiromao.meli.mercadolivre.util.ProductLoader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class ProductService {
@@ -15,11 +16,10 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<Product> getAllProducts() {
-        return ProductLoader.loadProducts();
-    }
+    @Value("${products.path}")
+    private String productsPath;
 
-    public Product findBy(UUID productId) {
-        return this.productRepository.findBy(productId);
+    public Page<Product> getAllProducts(Pageable pageable) {
+        return this.productRepository.getAllProducts(productsPath, pageable);
     }
 }

@@ -2,9 +2,17 @@ package br.com.guiromao.meli.mercadolivre.domain.enuns;
 
 public enum Category {
     BOOK("Livro"),
-    TECNOLOGY("Tecnologia"),
+    ELECTRONICS("Tecnologia"),
     FASHION("Moda"),
-    VEHICLE("Automovel");
+    AUTOMOTIVE("Automovel"),
+    HOME("Casa"),
+    HARDWARE("Hardware"),
+    MUSIC("Musica"),
+    SPORT("Esporte"),
+    TOY("Brinquedos"),
+    BEAUTY("Beleza"),
+
+    ;
 
     private final String value;
 
