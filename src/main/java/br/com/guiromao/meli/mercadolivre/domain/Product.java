@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 import java.util.UUID;
 
 @ToString
@@ -17,4 +18,17 @@ public class Product {
     private BigDecimal price;
     private Category category;
     private double review;
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(id, product.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }
