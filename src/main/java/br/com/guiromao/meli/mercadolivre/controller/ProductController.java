@@ -2,6 +2,7 @@ package br.com.guiromao.meli.mercadolivre.controller;
 
 import br.com.guiromao.meli.mercadolivre.controller.dto.response.ProductDetailResponseDTO;
 import br.com.guiromao.meli.mercadolivre.controller.dto.response.ProductResponseDTO;
+import br.com.guiromao.meli.mercadolivre.infra.exception.ProductNotExistsException;
 import br.com.guiromao.meli.mercadolivre.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -37,7 +38,7 @@ public class ProductController {
         var optional = this.productService.getBy(productId);
 
         if(optional.isEmpty()) {
-            throw new RuntimeException("");
+            throw new ProductNotExistsException("Produto não encontrado");
         }
 
         return ResponseEntity.ok(new ProductDetailResponseDTO(optional.get()));
