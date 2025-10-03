@@ -38,11 +38,6 @@ public class ProductController {
     public ResponseEntity<Page<ProductResponseDTO>> getAllProducts(@PageableDefault(size = 5) Pageable pageable) {
         var products = this.productService.getAllProducts(pageable);
 
-        log.info("Getting products {} ", products);
-
-        if(products.isEmpty())
-            ResponseEntity.noContent().build();
-
         log.info("Success getting products");
 
         return ResponseEntity.ok(products.map(ProductResponseDTO::new));
