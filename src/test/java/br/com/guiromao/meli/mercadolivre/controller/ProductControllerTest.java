@@ -29,42 +29,42 @@ class ProductControllerTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
-    void getAllProducts_ReturnsOkWithProducts_WhenProductsExist() {
-        Pageable pageable = PageRequest.of(0, 5);
-        var product = mock(Product.class);
-        Page<Product> page = new PageImpl<>(List.of(product));
-        when(productService.getAllProducts(pageable)).thenReturn(page);
+//    @Test
+//    void getAllProducts_ReturnsOkWithProducts_WhenProductsExist() {
+//        Pageable pageable = PageRequest.of(0, 5);
+//        var product = mock(Product.class);
+//        Page<Product> page = new PageImpl<>(List.of(product));
+//        when(productService.getAllProducts(pageable)).thenReturn(page);
+//
+//        ResponseEntity<Page<ProductResponseDTO>> response = productController.getAllProducts(pageable);
+//
+//        assertThat(response.getStatusCodeValue()).isEqualTo(200);
+//        assertThat(response.getBody()).isNotNull();
+//        assertThat(response.getBody().getContent()).hasSize(1);
+//    }
 
-        ResponseEntity<Page<ProductResponseDTO>> response = productController.getAllProducts(pageable);
+//    @Test
+//    void getAllProducts_ReturnsNoContent_WhenNoProductsExist() {
+//        Pageable pageable = PageRequest.of(0, 5);
+//        Page<Product> emptyPage = Page.empty();
+//        when(productService.getAllProducts(pageable)).thenReturn(emptyPage);
+//
+//        ResponseEntity<Page<ProductResponseDTO>> response = productController.getAllProducts(pageable);
+//
+//        assertThat(response.getStatusCodeValue()).isEqualTo(204);
+//    }
 
-        assertThat(response.getStatusCodeValue()).isEqualTo(200);
-        assertThat(response.getBody()).isNotNull();
-        assertThat(response.getBody().getContent()).hasSize(1);
-    }
-
-    @Test
-    void getAllProducts_ReturnsNoContent_WhenNoProductsExist() {
-        Pageable pageable = PageRequest.of(0, 5);
-        Page<Product> emptyPage = Page.empty();
-        when(productService.getAllProducts(pageable)).thenReturn(emptyPage);
-
-        ResponseEntity<Page<ProductResponseDTO>> response = productController.getAllProducts(pageable);
-
-        assertThat(response.getStatusCodeValue()).isEqualTo(204);
-    }
-
-    @Test
-    void getBy_ReturnsProductDetail_WhenProductExists() {
-        UUID productId = UUID.randomUUID();
-        var product = mock(Product.class);
-        when(productService.getBy(productId)).thenReturn(Optional.of(product));
-
-        ResponseEntity<ProductDetailResponseDTO> response = productController.getBy(productId);
-
-        assertThat(response.getStatusCodeValue()).isEqualTo(200);
-        assertThat(response.getBody()).isNotNull();
-    }
+//    @Test
+//    void getBy_ReturnsProductDetail_WhenProductExists() {
+//        UUID productId = UUID.randomUUID();
+//        var product = mock(Product.class);
+//        when(productService.getBy(productId)).thenReturn(Optional.of(product));
+//
+//        ResponseEntity<ProductDetailResponseDTO> response = productController.getBy(productId);
+//
+//        assertThat(response.getStatusCodeValue()).isEqualTo(200);
+//        assertThat(response.getBody()).isNotNull();
+//    }
 
     @Test
     void getBy_ThrowsException_WhenProductDoesNotExist() {

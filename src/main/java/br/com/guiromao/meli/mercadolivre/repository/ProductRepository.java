@@ -49,10 +49,10 @@ public class ProductRepository {
 
 
     private Page<Product> returnPage(List<Product> products, Pageable pageable) {
-        int start = (int) pageable.getOffset();
-        int end = Math.min(start + pageable.getPageSize(), products.size());
+        var start = (int) pageable.getOffset();
+        var end = Math.min(start + pageable.getPageSize(), products.size());
 
-        List<Product> page = products.subList(start, end);
+        var page = products.subList(start, end);
 
         return new PageImpl<>(page, pageable, products.size());
     }
