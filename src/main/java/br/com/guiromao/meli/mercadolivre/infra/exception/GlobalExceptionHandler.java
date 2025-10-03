@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    @ResponseStatus(code = HttpStatus.NOT_FOUND)
     @ExceptionHandler(ProductNotExistsException.class)
     public ErrorDTO handleProductNotExists(ProductNotExistsException ex) {
         return new ErrorDTO(ex.getMessage());
