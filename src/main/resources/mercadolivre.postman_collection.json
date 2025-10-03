@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "cc008956-9df5-4f4e-97f0-51d9e987c5b3",
+		"name": "meli",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5316886",
+		"_collection_link": "https://cloud4care.postman.co/workspace/Cloud4Care~08576c35-b5ff-4a10-9223-ad846064f419/collection/5316886-cc008956-9df5-4f4e-97f0-51d9e987c5b3?action=share&source=collection_link&creator=5316886"
+	},
+	"item": [
+		{
+			"name": "/api/v1/products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/products/id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/api/v1/products/1c9fc7f2-99c6-4b90-ae14-92a583b24c28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1c9fc7f2-99c6-4b90-ae14-92a583b24c28"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
