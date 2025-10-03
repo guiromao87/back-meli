@@ -4,6 +4,7 @@ import br.com.guiromao.meli.mercadolivre.domain.Product;
 import br.com.guiromao.meli.mercadolivre.infra.exception.JsonProcessorException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Slf4j
 @Repository
 public class ProductRepository {
 
