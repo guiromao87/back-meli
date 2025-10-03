@@ -2,16 +2,21 @@ package br.com.guiromao.meli.mercadolivre.repository;
 
 import br.com.guiromao.meli.mercadolivre.domain.Product;
 import br.com.guiromao.meli.mercadolivre.infra.exception.JsonProcessorException;
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -22,6 +27,9 @@ public class ProductRepository {
 
     @Value("${products.path}")
     private String productsPath;
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private List<Product> listaDeProdutos;
 
     public Page<Product> getAllProducts(Pageable pageable) {
         return returnPage(products(productsPath), pageable);
@@ -34,18 +42,19 @@ public class ProductRepository {
                 .findFirst();
     }
 
-
     private List<Product> products(String productsPath) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
         try {
-            return objectMapper.readValue(
-                    new File(productsPath),
-                    new TypeReference<List<Product>>() {}
-            );
+            ClassPathResource resource = new ClassPathResource("products.json");
 
-        } catch (IOException e) {
-            throw new JsonProcessorException("Erro ao ler ou processar o arquivo JSON");
+            try (InputStream inputStream = resource.getInputStream()) {
+                return objectMapper.readValue(
+                        inputStream,
+                        new TypeReference<List<Product>>() {}
+                );
+            }
+
+        } catch (Exception e) {
+            throw new JsonProcessorException("Erro ao processar o arquivo products.json");
         }
     }
 
