@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -25,10 +26,6 @@ public class ProductRepository {
     private String productsPath;
 
     private final ObjectMapper objectMapper;
-    private List<Product> listaDeProdutos;
-
-
-
 
     public ProductRepository(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
