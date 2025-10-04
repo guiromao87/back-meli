@@ -43,7 +43,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void retornaPaginaQuandoTemProdutos() {
+    void ReturnsPageWithElementsWhenThereIsProduct() {
         when(productListConverter.products()).thenReturn(products);
 
         var pageable = PageRequest.of(0, 2);
@@ -54,7 +54,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void RetornaPaginaQuandoNaoTemProdutos() {
+    void returnsEmptyPageWhenThereIsNoOroduct() {
         when(productListConverter.products()).thenReturn(List.of());
 
         var pageable = PageRequest.of(0, 2);
@@ -65,7 +65,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void retornaProdutoQuandoIdExiste() {
+    void returnsProductWhenIdExists() {
         var id = UUID.fromString("3b2c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7f");
         when(productListConverter.products()).thenReturn(products);
 
@@ -77,7 +77,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void quandoIdNaoExiste() {
+    void returnsEmptyWhenIdDoesNotExists() {
         var id = UUID.randomUUID();
         when(productListConverter.products()).thenReturn(products);
 
@@ -87,7 +87,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void retornaPaginaVaziaQuandoOffsetEstaForaDoRange() {
+    void returnsEmptyPageWhenOffsetIsOutofRange() {
         when(productListConverter.products()).thenReturn(products);
 
         var pageable = PageRequest.of(10, 30);

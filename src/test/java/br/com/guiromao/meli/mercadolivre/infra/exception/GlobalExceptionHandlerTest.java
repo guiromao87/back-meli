@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class GlobalExceptionHandlerTest {
 
     @Test
-    void handleProductNotExists_ReturnsErrorDTOWithCorrectMessage() {
+    void handleProductNotExistsAndReturnsErrorDTOWithCorrectMessage() {
         GlobalExceptionHandler handler = new GlobalExceptionHandler();
         String errorMessage = "Produto não encontrado";
         ProductNotExistsException exception = new ProductNotExistsException(errorMessage);

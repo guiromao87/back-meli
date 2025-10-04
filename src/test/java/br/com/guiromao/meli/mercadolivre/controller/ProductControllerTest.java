@@ -79,7 +79,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    void getBy_ThrowsProductNotExistsException_WhenProductNotFound() {
+    void throwsProductNotExistsExceptionWhenProductNotFound() {
         UUID productId = UUID.randomUUID();
         when(productService.getBy(productId)).thenReturn(Optional.empty());
 

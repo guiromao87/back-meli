@@ -23,7 +23,7 @@ class ProductServiceTest {
     }
 
     @Test
-    void getAllProducts_ReturnsPageWithProducts_WhenProductsExist() {
+    void returnsPageWithProductsWhenProductsExist() {
         Pageable pageable = PageRequest.of(0, 10);
         Product product = mock(Product.class);
         Page<Product> page = new PageImpl<>(List.of(product));
@@ -36,7 +36,7 @@ class ProductServiceTest {
     }
 
     @Test
-    void getAllProducts_ReturnsEmptyPage_WhenNoProductsExist() {
+    void returnsEmptyPageWhenNoProductsExist() {
         Pageable pageable = PageRequest.of(0, 10);
         Page<Product> emptyPage = Page.empty();
         when(productRepository.getAllProducts(pageable)).thenReturn(emptyPage);
@@ -47,7 +47,7 @@ class ProductServiceTest {
     }
 
     @Test
-    void getBy_ReturnsProductOptional_WhenProductExists() {
+    void returnsProductOptionalWhenProductExists() {
         UUID id = UUID.randomUUID();
         Product product = mock(Product.class);
         when(productRepository.getBy(id)).thenReturn(Optional.of(product));
@@ -59,7 +59,7 @@ class ProductServiceTest {
     }
 
     @Test
-    void getBy_ReturnsEmptyOptional_WhenProductDoesNotExist() {
+    void returnsEmptyOptionalWhenProductDoesNotExist() {
         UUID id = UUID.randomUUID();
         when(productRepository.getBy(id)).thenReturn(Optional.empty());
 
