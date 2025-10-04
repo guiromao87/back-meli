@@ -24,8 +24,15 @@ public class ProductRepository {
     @Value("${products.path}")
     private String productsPath;
 
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper;
     private List<Product> listaDeProdutos;
+
+
+
+
+    public ProductRepository(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
 
     public Page<Product> getAllProducts(Pageable pageable) {
         return returnPage(products(productsPath), pageable);
