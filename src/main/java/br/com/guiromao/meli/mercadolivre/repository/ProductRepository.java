@@ -2,20 +2,16 @@ package br.com.guiromao.meli.mercadolivre.repository;
 
 import br.com.guiromao.meli.mercadolivre.domain.Product;
 import br.com.guiromao.meli.mercadolivre.infra.exception.JsonProcessorException;
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
-import java.io.File;
-import java.io.IOException;
+
 import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;

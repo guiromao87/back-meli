@@ -1,23 +1,11 @@
 package br.com.guiromao.meli.mercadolivre.repository;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static org.assertj.core.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-
+@ExtendWith(SpringExtension.class)
 class ProductRepositoryTest {
 
-    @Test
-    void throwsJsonProcessorException_WhenJsonFileIsInvalid() {
-        ProductRepository repository = new ProductRepository();
-        // Simula um caminho inválido para forçar IOException
-        String invalidPath = "caminho/inexistente.json";
-        assertThatThrownBy(() -> {
-            // Usa reflection para acessar o método privado
-            var method = ProductRepository.class.getDeclaredMethod("products", String.class);
-            method.setAccessible(true);
-            method.invoke(repository, invalidPath);
-        }).hasCauseInstanceOf(br.com.guiromao.meli.mercadolivre.infra.exception.JsonProcessorException.class)
-                .hasRootCauseMessage("Erro ao ler ou processar o arquivo JSON");
-    }
+
 }

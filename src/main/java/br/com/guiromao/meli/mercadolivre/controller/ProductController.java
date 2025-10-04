@@ -41,7 +41,6 @@ public class ProductController {
         log.info("Success getting products");
 
         return ResponseEntity.ok(products.map(ProductResponseDTO::new));
-
     }
 
     @Operation(summary = "Get product by id",

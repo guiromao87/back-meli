@@ -1,78 +1,90 @@
 package br.com.guiromao.meli.mercadolivre.controller;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import static org.mockito.Mockito.*;
-import static org.assertj.core.api.Assertions.*;
-
-import br.com.guiromao.meli.mercadolivre.controller.dto.response.ProductDetailResponseDTO;
-import br.com.guiromao.meli.mercadolivre.controller.dto.response.ProductResponseDTO;
 import br.com.guiromao.meli.mercadolivre.domain.Product;
-import br.com.guiromao.meli.mercadolivre.infra.exception.ProductNotExistsException;
+import br.com.guiromao.meli.mercadolivre.domain.enuns.Category;
 import br.com.guiromao.meli.mercadolivre.service.ProductService;
-import org.junit.jupiter.api.*;
-import org.mockito.*;
-import org.springframework.data.domain.*;
-import org.springframework.http.ResponseEntity;
-import java.util.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.web.servlet.MockMvc;
 
-class ProductControllerTest {
+import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.Optional;
+import java.util.UUID;
 
-    @Mock
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@WebMvcTest(ProductController.class)
+public class ProductControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockitoBean
     private ProductService productService;
 
-    @InjectMocks
+    @Autowired
     private ProductController productController;
 
+    private Product product;
+    private Page<Product> page;
+
     @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
+    void setup() {
+        product = Product.builder()
+                .id(UUID.randomUUID())
+                .name("Produto 1")
+                .category(Category.BOOK)
+                .price(BigDecimal.valueOf(99.99))
+                .build();
+
+        page = new PageImpl<>(Collections.singletonList(product), PageRequest.of(0, 10), 1);
     }
 
-//    @Test
-//    void getAllProducts_ReturnsOkWithProducts_WhenProductsExist() {
-//        Pageable pageable = PageRequest.of(0, 5);
-//        var product = mock(Product.class);
-//        Page<Product> page = new PageImpl<>(List.of(product));
-//        when(productService.getAllProducts(pageable)).thenReturn(page);
-//
-//        ResponseEntity<Page<ProductResponseDTO>> response = productController.getAllProducts(pageable);
-//
-//        assertThat(response.getStatusCodeValue()).isEqualTo(200);
-//        assertThat(response.getBody()).isNotNull();
-//        assertThat(response.getBody().getContent()).hasSize(1);
-//    }
+    @Test
+    void shouldReturnPaginatedProducts() throws Exception {
+        Mockito.when(productService.getAllProducts(any(Pageable.class))).thenReturn(page);
 
-//    @Test
-//    void getAllProducts_ReturnsNoContent_WhenNoProductsExist() {
-//        Pageable pageable = PageRequest.of(0, 5);
-//        Page<Product> emptyPage = Page.empty();
-//        when(productService.getAllProducts(pageable)).thenReturn(emptyPage);
-//
-//        ResponseEntity<Page<ProductResponseDTO>> response = productController.getAllProducts(pageable);
-//
-//        assertThat(response.getStatusCodeValue()).isEqualTo(204);
-//    }
-
-//    @Test
-//    void getBy_ReturnsProductDetail_WhenProductExists() {
-//        UUID productId = UUID.randomUUID();
-//        var product = mock(Product.class);
-//        when(productService.getBy(productId)).thenReturn(Optional.of(product));
-//
-//        ResponseEntity<ProductDetailResponseDTO> response = productController.getBy(productId);
-//
-//        assertThat(response.getStatusCodeValue()).isEqualTo(200);
-//        assertThat(response.getBody()).isNotNull();
-//    }
+        mockMvc.perform(get("/api/v1/products").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.content[0].id").value(product.getId().toString()))
+                .andExpect(jsonPath("$.content[0].name").value(product.getName()))
+                .andExpect(jsonPath("$.content[0].price").value(product.getPrice()));
+    }
 
     @Test
-    void getBy_ThrowsException_WhenProductDoesNotExist() {
+    void shouldReturnProductById() throws Exception {
+        Mockito.when(productService.getBy(product.getId())).thenReturn(Optional.ofNullable(product));
+
+        mockMvc.perform(get("/api/v1/products/" + product.getId())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(product.getId().toString()))
+                .andExpect(jsonPath("$.name").value(product.getName()))
+                .andExpect(jsonPath("$.price").value(product.getPrice()));
+    }
+
+    @Test
+    void getBy_ThrowsProductNotExistsException_WhenProductNotFound() {
         UUID productId = UUID.randomUUID();
         when(productService.getBy(productId)).thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> productController.getBy(productId))
-                .isInstanceOf(ProductNotExistsException.class)
-                .hasMessageContaining("Produto não encontrado");
+                .isInstanceOf(br.com.guiromao.meli.mercadolivre.infra.exception.ProductNotExistsException.class)
+                .hasMessage("Produto não encontrado");
     }
 }
