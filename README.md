@@ -36,7 +36,7 @@ A api possui dois endpoints:
 | GET    | `/products`         | Lista produtos paginados                  | `page`, `size` (paginacao)                                                                   | Produtos em Json
 | GET    | `/products/{id}`    | Busca produto por ID                      | `id` (path variable)                                                                         | Produto ou 404 se não encontrado |
 
-OBS: Os parâmetros `page` e `size` da paginação são opcionais caso queira trocar pelos falores default da anotação `@PageableDefault`.
+OBS: Os parâmetros `page` e `size` da paginação são opcionais caso queira trocar pelos valores default da anotação `@PageableDefault`, basta passa-los como query parameter da url.
 
 ---
 
@@ -67,7 +67,7 @@ Com isso temos o projeto rodando na porta 8080.
 
 ### Documentação com Swagger e teste
 
-Para facilitar os testes da api disponibilizei a colection do postman na raiz do projeto ou caso contrário está configurado o swagger para melhor visualização dos endpoints, para acessa-lo devemos rudar a aplicação e entrar no endereço: 
+Para facilitar os testes da api disponibilizei a colection do postman na raiz do projeto ou caso contrário está configurado o swagger para melhor visualização dos endpoints, para acessa-lo devemos rodar a aplicação e entrar no endereço: 
 `http://localhost:8080/swagger-ui.html`
 
 ### CORS
